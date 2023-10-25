@@ -28,7 +28,7 @@ def call_chatbot_api(query):
     
   #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A    
     
-  url='https://hf-aichat-api.onrender.com/api/chat' - Failed
+  url='https://hf-aichat-api.onrender.com/api/chat'   #Flask API调用???(https://github.com/BinqiangLiu/OpenAIChat/edit/main/api.py)
     
   json_data_for_api = {'user_question': query}
   response = requests.post(url, json=json_data_for_api) 
