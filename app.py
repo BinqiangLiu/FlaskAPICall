@@ -27,6 +27,8 @@ def call_chatbot_api(query):
     
   #url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #url = 'https://binqiangliu-flask-inference-api.hf.space/' #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
+  #在Huggingface部署了https://binqiangliu-flaskapi-call-streamlit-hf.hf.space，也可以成功调用Flask API
+  #https://huggingface.co/spaces/binqiangliu/FlaskAPI_Call_Streamlit_HF
     
   #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A    
     
