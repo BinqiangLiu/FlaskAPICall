@@ -13,12 +13,23 @@ with open(css_file) as f:
 def call_chatbot_api(query):
   #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/' #Flask API调用成功
+
   url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://ishare-flaskapi-in-docker.hf.space' #Flask API调用成功
-  #url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
+    #这个API调用程序部署好之后，运行的时候，可能会遇到：requests.exceptions.JSONDecodeError
+    #故障的原因，需要回到API程序（即url指向的App）查看：raise ValueError(f"Error raised by inference API: {response['error']}")
+    #ValueError: Error raised by inference API: Model is overloaded - 调用频次过高，导致模型过载（估计主要就是因为App在Free tier的CPU硬件资源运行所致吧？）
+
+  #url = 'https://binqiangliu-flaskapi-st-hf.hf.space/api/chat' #Flask API调用？
+  #https://huggingface.co/spaces/binqiangliu/FlaskAPI-ST-HF
+    
+  url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #url = 'https://binqiangliu-flask-inference-api.hf.space/' #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
-  #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A
-  #url='https://hf-aichat-api.onrender.com/api/chat'
+    
+  #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A    
+    
+  #url='https://hf-aichat-api.onrender.com/api/chat' - Failed
+    
   json_data_for_api = {'user_question': query}
   response = requests.post(url, json=json_data_for_api) 
   result = response.json()
