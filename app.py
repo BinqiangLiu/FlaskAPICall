@@ -14,7 +14,7 @@ def call_chatbot_api(query):
   url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/' #Flask API调用成功
 
-  url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
+  #url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://ishare-flaskapi-in-docker.hf.space' #Flask API调用成功
     #这个API调用程序部署好之后，运行的时候，可能会遇到：requests.exceptions.JSONDecodeError
     #故障的原因，需要回到API程序（即url指向的App）查看：raise ValueError(f"Error raised by inference API: {response['error']}")
@@ -31,6 +31,11 @@ def call_chatbot_api(query):
   #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A    
     
   #url='https://hf-aichat-api.onrender.com/api/chat'   #Flask API调用成功(https://github.com/BinqiangLiu/OpenAIChat/edit/main/api.py)
+
+  url = 'https://binqiangliu-fastapi-in-docker.hf.space/api/chat' #Fast API调用成功
+  #https://huggingface.co/spaces/binqiangliu/FastAPI_in_Docker；无法实现同时运行Streamlit - 改用Docker成功实现！Streamlit和FastAPI也不兼容！
+  #同时在Render部署了https://fastapicall.onrender.com/，也可以成功调用Fast API（源文件：https://github.com/BinqiangLiu/FastAPICall/blob/main/app.py）
+  #同时在Huggingface部署了https://huggingface.co/spaces/binqiangliu/fastapi_call_hf，也可以成功调用Fast API
     
   json_data_for_api = {'user_question': query}
   response = requests.post(url, json=json_data_for_api) 
