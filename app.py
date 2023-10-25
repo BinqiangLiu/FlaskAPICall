@@ -35,7 +35,11 @@ def call_chatbot_api(query):
   url = 'https://binqiangliu-fastapi-in-docker.hf.space/api/chat' #Fast API调用成功
   #https://huggingface.co/spaces/binqiangliu/FastAPI_in_Docker；无法实现同时运行Streamlit - 改用Docker成功实现！Streamlit和FastAPI也不兼容！
   #同时在Render部署了https://fastapicall.onrender.com/，也可以成功调用Fast API（源文件：https://github.com/BinqiangLiu/FastAPICall/blob/main/app.py）
-  #同时在Huggingface部署了https://huggingface.co/spaces/binqiangliu/fastapi_call_hf，也可以成功调用Fast API
+  #同时在Huggingface部署了https://huggingface.co/spaces/binqiangliu/FastAPI_Call_Streamlit_HF，也可以成功调用Fast API
+  #https://binqiangliu-fastapi-call-streamlit-hf.hf.space
+
+  #url = 'https://binqiangliu-fastapi-in-docker-copy.hf.space/api/chat' #Fast API调用成功
+  #https://huggingface.co/spaces/binqiangliu/FastAPI_in_Docker_Copy   
     
   json_data_for_api = {'user_question': query}
   response = requests.post(url, json=json_data_for_api) 
