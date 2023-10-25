@@ -11,13 +11,13 @@ with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 def call_chatbot_api(query):
-  url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
+  #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/' #Flask API调用成功
-  #url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
+  url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://ishare-flaskapi-in-docker.hf.space' #Flask API调用成功
   #url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #url = 'https://binqiangliu-flask-inference-api.hf.space/' #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
-  #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用成功
+  #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A
   #url='https://hf-aichat-api.onrender.com/api/chat'
   json_data_for_api = {'user_question': query}
   response = requests.post(url, json=json_data_for_api) 
