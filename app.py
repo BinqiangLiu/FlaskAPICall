@@ -20,10 +20,10 @@ def call_chatbot_api(query):
     #故障的原因，需要回到API程序（即url指向的App）查看：raise ValueError(f"Error raised by inference API: {response['error']}")
     #ValueError: Error raised by inference API: Model is overloaded - 调用频次过高，导致模型过载（估计主要就是因为App在Free tier的CPU硬件资源运行所致吧？）
 
-  #url = 'https://binqiangliu-flaskapi-st-hf.hf.space/api/chat' #Flask API调用？
+  url = 'https://binqiangliu-flaskapi-st-hf.hf.space/api/chat' #Flask API调用？
   #https://huggingface.co/spaces/binqiangliu/FlaskAPI-ST-HF
     
-  url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
+  #url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #url = 'https://binqiangliu-flask-inference-api.hf.space/' #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
     
   #url = 'https://binqiangliu-flaskdeployhf.hf.space/api/chat' #Flask API调用-N/A    
