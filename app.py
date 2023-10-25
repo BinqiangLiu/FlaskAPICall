@@ -11,7 +11,7 @@ with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 def call_chatbot_api(query):
-  url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
+  #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
   #url = 'https://binqiangliu-flaskapi-in-docker.hf.space/' #Flask API调用成功
 
   #url = 'https://ishare-flaskapi-in-docker.hf.space/api/chat' #Flask API调用成功
@@ -25,7 +25,7 @@ def call_chatbot_api(query):
   #初步判定原因是由于其SDK是Streamlit所致（这个和在Github部署的时候，在app.py中还有Streamlit的代码，却能够成功部署到Render并与成功构建API App不同！
   #这个原因，就和将API App部署到Streamlit的Cloud平台一样无法工作一样！所以，综合结论就是：Streamlit和FlaskAPI/FastAPI不兼容！
     
-  #url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
+  url = 'https://binqiangliu-flask-inference-api.hf.space/api/chat'  #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #url = 'https://binqiangliu-flask-inference-api.hf.space/' #Flask API调用成功 - 直接在app.py中采用Flask App的app.run(host='0.0.0.0',  port=7860)，没有采用uvicorn或gunicorn
   #在Huggingface部署了https://binqiangliu-flaskapi-call-streamlit-hf.hf.space，也可以成功调用Flask API
   #https://huggingface.co/spaces/binqiangliu/FlaskAPI_Call_Streamlit_HF
@@ -34,7 +34,7 @@ def call_chatbot_api(query):
     
   #url='https://hf-aichat-api.onrender.com/api/chat'   #Flask API调用成功(https://github.com/BinqiangLiu/OpenAIChat/edit/main/api.py)
 
-  url = 'https://binqiangliu-fastapi-in-docker.hf.space/api/chat' #Fast API调用成功
+  #url = 'https://binqiangliu-fastapi-in-docker.hf.space/api/chat' #Fast API调用成功
   #https://huggingface.co/spaces/binqiangliu/FastAPI_in_Docker；无法实现同时运行Streamlit - 改用Docker成功实现！Streamlit和FastAPI也不兼容！
   #同时在Render部署了https://fastapicall.onrender.com/，也可以成功调用Fast API（源文件：https://github.com/BinqiangLiu/FastAPICall/blob/main/app.py）
   #同时在Huggingface部署了https://huggingface.co/spaces/binqiangliu/FastAPI_Call_Streamlit_HF，也可以成功调用Fast API
